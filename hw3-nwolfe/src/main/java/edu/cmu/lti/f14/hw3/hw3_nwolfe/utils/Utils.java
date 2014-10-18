@@ -1,4 +1,4 @@
-package edu.cmu.lti.f14.hw1.hw3_nwolfe.utils;
+package edu.cmu.lti.f14.hw3.hw3_nwolfe.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;

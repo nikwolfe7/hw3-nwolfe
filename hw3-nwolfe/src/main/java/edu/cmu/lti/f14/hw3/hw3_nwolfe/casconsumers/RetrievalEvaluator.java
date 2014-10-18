@@ -1,4 +1,4 @@
-package edu.cmu.lti.f14.hw1.hw3_nwolfe.casconsumers;
+package edu.cmu.lti.f14.hw3.hw3_nwolfe.casconsumers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
 
-import edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Document;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Document;
 
 
 public class RetrievalEvaluator extends CasConsumer_ImplBase {

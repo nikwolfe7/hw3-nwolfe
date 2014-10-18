@@ -1,7 +1,7 @@
 
 
 /* First created by JCasGen Fri Oct 11 01:58:03 EDT 2013 */
-package edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems;
+package edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems;
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
@@ -69,14 +69,14 @@ public class Token extends Annotation {
    * @generated */
   public String getText() {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_text == null)
-      jcasType.jcas.throwFeatMissing("text", "edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("text", "edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_text);}
     
   /** setter for text - sets  
    * @generated */
   public void setText(String v) {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_text == null)
-      jcasType.jcas.throwFeatMissing("text", "edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("text", "edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token");
     jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_text, v);}    
    
     
@@ -87,14 +87,14 @@ public class Token extends Annotation {
    * @generated */
   public int getFrequency() {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_frequency == null)
-      jcasType.jcas.throwFeatMissing("frequency", "edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("frequency", "edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token");
     return jcasType.ll_cas.ll_getIntValue(addr, ((Token_Type)jcasType).casFeatCode_frequency);}
     
   /** setter for frequency - sets  
    * @generated */
   public void setFrequency(int v) {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_frequency == null)
-      jcasType.jcas.throwFeatMissing("frequency", "edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("frequency", "edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token");
     jcasType.ll_cas.ll_setIntValue(addr, ((Token_Type)jcasType).casFeatCode_frequency, v);}    
   }
 

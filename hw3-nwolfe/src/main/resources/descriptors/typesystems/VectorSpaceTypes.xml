@@ -6,7 +6,7 @@
   <vendor/>
   <types>
     <typeDescription>
-      <name>edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Document</name>
+      <name>edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Document</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -34,7 +34,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Token</name>
+      <name>edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>

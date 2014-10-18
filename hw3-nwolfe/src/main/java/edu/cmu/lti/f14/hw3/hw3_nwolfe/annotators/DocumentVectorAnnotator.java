@@ -1,4 +1,4 @@
-package edu.cmu.lti.f14.hw1.hw3_nwolfe.annotators;
+package edu.cmu.lti.f14.hw3.hw3_nwolfe.annotators;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ import org.apache.uima.jcas.cas.IntegerArray;
 import org.apache.uima.jcas.cas.StringArray;
 import org.apache.uima.jcas.tcas.Annotation;
 
-import edu.cmu.lti.f14.hw1.hw3_nwolfe.typesystems.Document;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Document;
 
 public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
@@ -35,7 +35,6 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
 	List<String> tokenize0(String doc) {
 	  List<String> res = new ArrayList<String>();
-	  
 	  for (String s: doc.split("\\s+"))
 	    res.add(s);
 	  return res;
@@ -50,7 +49,10 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 	private void createTermFreqVector(JCas jcas, Document doc) {
 
 		String docText = doc.getText();
-		
+		List<String> list = tokenize0(docText);
+		for(String token : list){
+		  System.out.println(token);
+		}
 		//TO DO: construct a vector of tokens and update the tokenList in CAS
     //TO DO: use tokenize0 from above 
 		
