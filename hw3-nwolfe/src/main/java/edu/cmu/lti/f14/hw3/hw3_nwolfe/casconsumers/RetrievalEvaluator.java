@@ -2,7 +2,10 @@ package edu.cmu.lti.f14.hw3.hw3_nwolfe.casconsumers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -35,6 +38,9 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
   /** Map of answers **/
   private BetterMap<Integer, Answer> ansMap;
+  
+  /** Output string buffer **/
+  private ArrayList<String> outputBuffer;
 
   @Override
   public void initialize() throws ResourceInitializationException {
@@ -46,6 +52,8 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
     qMap = new BetterMap<Integer, Query>();
 
     ansMap = new BetterMap<Integer, Answer>();
+    
+    outputBuffer = new ArrayList<String>();
   }
 
   @SuppressWarnings("serial")
@@ -111,25 +119,47 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   public void collectionProcessComplete(ProcessTrace arg0) throws ResourceProcessException,
           IOException {
     super.collectionProcessComplete(arg0);
-
+    
     // TODO :: compute the cosine similarity measure
-
-    // TODO :: compute the rank of retrieved sentences
-
+    for(Integer qid : qMap.keySet()) {
+      Query query = qMap.get(qid).get(0);
+      for(Answer ans : ansMap.get(qid)) {
+        Double cosSim = computeCosineSimilarity(query.getDocTokenFrequencies(), ans.getDocTokenFrequencies());
+        ans.setCosineSimilarity(cosSim);
+      }
+      // TODO :: compute the rank of retrieved sentences
+      ArrayList<Answer> alist = ansMap.get(qid);
+      Collections.sort(alist);
+      ansMap.put(qid, alist);
+      
+      // ouput highest ranked sentences
+      addReportResults(alist,qid);
+    }
     // TODO :: compute the metric:: mean reciprocal rank
-    double metric_mrr = compute_mrr();
+    Double metric_mrr = compute_mrr();
     System.out.println(" (MRR) Mean Reciprocal Rank ::" + metric_mrr);
+  }
+
+  private void addReportResults(ArrayList<Answer> alist, Integer qid) {
+    for(int i = 0; i < alist.size(); i++) {
+      Answer a = alist.get(i);
+      if(a.getRelevance() == 1) {
+        String report = String.format("cosine=%.4f\trank=%d\tqid=%d\trel=1\t%s", a.getCosineSimilarity(), i+1, qid, a.getDocText());
+        outputBuffer.add(report);
+        break;
+      }
+    }
   }
 
   /**
    * @return cosine_similarity
    */
-  private double computeCosineSimilarity(Map<String, Integer> queryVector,
+  private Double computeCosineSimilarity(Map<String, Integer> queryVector,
           Map<String, Integer> docVector) {
     Double cosine_similarity = 0.0;
 
-    Vector<Integer> A = (Vector<Integer>) queryVector.values();
-    Vector<Integer> B = (Vector<Integer>) docVector.values();
+    Iterable<Integer> A = queryVector.values();
+    Iterable<Integer> B = docVector.values();
     Double normA = calcEuclideanNorm(A);
     Double normB = calcEuclideanNorm(B);
     Double normAB = normA * normB;
@@ -154,7 +184,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
    * @param V
    * @return Double, euclidean norm
    */
-  private Double calcEuclideanNorm(Vector<Integer> V) {
+  private Double calcEuclideanNorm(Iterable<Integer> V) {
     Double eucNorm = 0.0;
     for (Integer v : V) {
       v = v * v; // v squared
@@ -162,13 +192,15 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
     }
     return Math.sqrt(eucNorm);
   }
-
+  
   /**
    * 
    * @return mrr
    */
-  private double compute_mrr() {
-    double metric_mrr = 0.0;
+  private Double compute_mrr() {
+    Double metric_mrr = 0.0;
+    
+    
 
     // TODO :: compute Mean Reciprocal Rank (MRR) of the text collection
 
