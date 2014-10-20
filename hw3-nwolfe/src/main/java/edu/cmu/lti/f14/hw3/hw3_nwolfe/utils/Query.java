@@ -1,0 +1,33 @@
+package edu.cmu.lti.f14.hw3.hw3_nwolfe.utils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Query {
+
+  private final Integer queryId;
+
+  private final String docText;
+
+  private final HashMap<String, Integer> docTokenFrequencies;
+
+  public Query(Integer queryId, String docText, HashMap<String, Integer> docTokenFreqs) {
+    super();
+    this.queryId = queryId;
+    this.docText = docText;
+    this.docTokenFrequencies = docTokenFreqs;
+  }
+
+  public Integer getQueryId() {
+    return queryId;
+  }
+
+  public String getDocText() {
+    return docText;
+  }
+
+  public Map<String, Integer> getDocTokenFrequencies() {
+    return docTokenFrequencies;
+  }
+
+}
