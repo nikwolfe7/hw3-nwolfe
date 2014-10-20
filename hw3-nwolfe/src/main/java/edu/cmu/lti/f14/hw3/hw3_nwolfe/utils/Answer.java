@@ -13,7 +13,9 @@ public class Answer implements Comparable<Answer> {
 
   private final HashMap<String, Integer> docTokenFrequencies;
   
-  private Double cosineSimilarity;
+  private Integer rank = 0;
+  
+  private Double cosineSimilarity = 0.0;
 
   public Answer(Integer queryId, Integer relevance, String docText,
           HashMap<String, Integer> docTokenFreqs) {
@@ -46,6 +48,23 @@ public class Answer implements Comparable<Answer> {
 
   public Double getCosineSimilarity() {
     return cosineSimilarity;
+  }
+
+  public Integer getRank() {
+    return rank;
+  }
+
+  public void setRank(Integer rank) {
+    this.rank = rank;
+  }
+  
+  public String getReport() {
+    String report = String.format("cosine=%.4f\trank=%d\tqid=%d\trel=1\t%s", 
+            getCosineSimilarity(), 
+            getRank(), 
+            getQueryId(), 
+            getDocText());
+    return report;
   }
 
   @Override

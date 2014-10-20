@@ -1,6 +1,9 @@
 package edu.cmu.lti.f14.hw3.hw3_nwolfe.casconsumers;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import org.apache.uima.UIMA_IllegalStateException;
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.cas.FSIterator;
@@ -22,6 +26,7 @@ import org.apache.uima.util.ProcessTrace;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Document;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Answer;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.BetterMap;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Query;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Utils;
 
@@ -38,9 +43,11 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
   /** Map of answers **/
   private BetterMap<Integer, Answer> ansMap;
-  
+
   /** Output string buffer **/
-  private ArrayList<String> outputBuffer;
+  private ArrayList<Answer> outputBuffer;
+
+  private final String outfile = "report.txt";
 
   @Override
   public void initialize() throws ResourceInitializationException {
@@ -52,21 +59,30 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
     qMap = new BetterMap<Integer, Query>();
 
     ansMap = new BetterMap<Integer, Answer>();
-    
-    outputBuffer = new ArrayList<String>();
+
+    outputBuffer = new ArrayList<Answer>();
   }
 
-  @SuppressWarnings("serial")
-  private class BetterMap<K, E> extends HashMap<K, ArrayList<E>> {
-    public void addItem(K k, E q) {
-      if (super.containsKey(k)) {
-        super.get(k).add(q);
-      } else {
-        ArrayList<E> arr = new ArrayList<E>();
-        arr.add(q);
-        super.put(k, arr);
-      }
+  /**
+   * Loops through the Answer objects in the outputBuffer
+   * and writes the results to a file. Ends by computing the
+   * MRR and outputs that as the last line of the file. 
+   */
+  private void printReport() {
+    PrintStream ps;
+    try {
+      ps = new PrintStream(new File(outfile));
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+      throw new UIMA_IllegalStateException();
     }
+    for (Answer a : outputBuffer) {
+      ps.println(a.getReport());
+    }
+    // TODO :: compute the metric:: mean reciprocal rank
+    Double metric_mrr = compute_mrr();
+    ps.println(" (MRR) Mean Reciprocal Rank :: " + metric_mrr);
+    ps.close();
   }
 
   /**
@@ -119,33 +135,38 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   public void collectionProcessComplete(ProcessTrace arg0) throws ResourceProcessException,
           IOException {
     super.collectionProcessComplete(arg0);
-    
+
     // TODO :: compute the cosine similarity measure
-    for(Integer qid : qMap.keySet()) {
+    for (Integer qid : qMap.keySet()) {
       Query query = qMap.get(qid).get(0);
-      for(Answer ans : ansMap.get(qid)) {
-        Double cosSim = computeCosineSimilarity(query.getDocTokenFrequencies(), ans.getDocTokenFrequencies());
+      for (Answer ans : ansMap.get(qid)) {
+        Double cosSim = computeCosineSimilarity(query.getDocTokenFrequencies(),
+                ans.getDocTokenFrequencies());
         ans.setCosineSimilarity(cosSim);
       }
       // TODO :: compute the rank of retrieved sentences
       ArrayList<Answer> alist = ansMap.get(qid);
       Collections.sort(alist);
       ansMap.put(qid, alist);
-      
+
       // ouput highest ranked sentences
-      addReportResults(alist,qid);
+      addReportResults(alist, qid);
     }
-    // TODO :: compute the metric:: mean reciprocal rank
-    Double metric_mrr = compute_mrr();
-    System.out.println(" (MRR) Mean Reciprocal Rank ::" + metric_mrr);
+    printReport();
   }
 
+  /**
+   * Loops through the Answer array, adds the ones which are ranked
+   * highest and relevant to the outputBuffer
+   * @param alist
+   * @param qid
+   */
   private void addReportResults(ArrayList<Answer> alist, Integer qid) {
-    for(int i = 0; i < alist.size(); i++) {
+    for (int i = 0; i < alist.size(); i++) {
       Answer a = alist.get(i);
-      if(a.getRelevance() == 1) {
-        String report = String.format("cosine=%.4f\trank=%d\tqid=%d\trel=1\t%s", a.getCosineSimilarity(), i+1, qid, a.getDocText());
-        outputBuffer.add(report);
+      a.setRank(i + 1);
+      if (a.getRelevance() == 1) {
+        outputBuffer.add(a);
         break;
       }
     }
@@ -192,18 +213,17 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
     }
     return Math.sqrt(eucNorm);
   }
-  
+
   /**
-   * 
+   * Calculate MRR from the Answers outputBuffer
    * @return mrr
    */
   private Double compute_mrr() {
     Double metric_mrr = 0.0;
-    
-    
-
-    // TODO :: compute Mean Reciprocal Rank (MRR) of the text collection
-
+    for(Answer a : outputBuffer) {
+      metric_mrr += 1/(a.getRank().floatValue());
+    }
+    metric_mrr = metric_mrr/outputBuffer.size();
     return metric_mrr;
   }
 
