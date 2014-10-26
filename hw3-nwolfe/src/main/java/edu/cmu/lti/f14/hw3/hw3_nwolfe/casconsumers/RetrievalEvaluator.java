@@ -175,7 +175,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   private Double computeCosineSimilarity(Map<String, Integer> queryVector,
           Map<String, Integer> docVector) {
     Double cosine_similarity = 0.0;
-
+    
     Iterable<Integer> A = queryVector.values();
     Iterable<Integer> B = docVector.values();
     Double normA = calcEuclideanNorm(A);
