@@ -41,6 +41,13 @@ public class Counter extends HashMap<String, Integer> {
   }
   
   /**
+   * clear the contents of the map
+   */
+  public void empty() {
+    super.clear();
+  }
+  
+  /**
    * Splits a document based on a String delimiter and adds them to the map
    * 
    * @param doc

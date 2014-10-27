@@ -15,7 +15,7 @@ public class Answer implements Comparable<Answer> {
   
   private Integer rank = 0;
   
-  private Double cosineSimilarity = 0.0;
+  private Double similarity = 0.0;
 
   public Answer(Integer queryId, Integer relevance, String docText,
           HashMap<String, Integer> docTokenFreqs) {
@@ -42,12 +42,12 @@ public class Answer implements Comparable<Answer> {
     return docTokenFrequencies;
   }
   
-  public void setCosineSimilarity(Double cosineSimilarity) {
-    this.cosineSimilarity = cosineSimilarity;
+  public void setSimilarity(Double similarity) {
+    this.similarity = similarity;
   }
 
-  public Double getCosineSimilarity() {
-    return cosineSimilarity;
+  public Double getSimilarity() {
+    return similarity;
   }
 
   public Integer getRank() {
@@ -59,8 +59,8 @@ public class Answer implements Comparable<Answer> {
   }
   
   public String getReport() {
-    String report = String.format("cosine=%.4f\trank=%d\tqid=%d\trel=%d\t%s", 
-            getCosineSimilarity(), 
+    String report = String.format("similarity=%.4f\trank=%d\tqid=%d\trel=%d\t%s", 
+            getSimilarity(), 
             getRank(), 
             getQueryId(), 
             getRelevance(),
@@ -70,9 +70,9 @@ public class Answer implements Comparable<Answer> {
 
   @Override
   public int compareTo(Answer o) {
-    if (this.cosineSimilarity > o.getCosineSimilarity()) {
+    if (this.similarity > o.getSimilarity()) {
       return -1;
-    } else if (this.cosineSimilarity < o.getCosineSimilarity()) {
+    } else if (this.similarity < o.getSimilarity()) {
       return 1;
     } else if (this.relevance >= o.relevance) {
       return 1;

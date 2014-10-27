@@ -18,9 +18,12 @@ import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Utils;
 
 public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
+  Counter tokenCounter;
+  
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     super.initialize(aContext);
+    this.tokenCounter = new Counter();
   }
 
   @Override
@@ -40,7 +43,7 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
    * @param doc
    */
   private void createTermFreqVector(JCas jCas, Document doc) {
-    Counter tokenCounter = new Counter();
+    tokenCounter.empty();
     String docText = doc.getText();
     tokenCounter.tokenizeAndPutAll(docText, " ");
     /**

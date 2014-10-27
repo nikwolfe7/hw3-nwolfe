@@ -3,7 +3,7 @@ package edu.cmu.lti.f14.hw3.hw3_nwolfe.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Query {
+public class Question {
 
   private final Integer queryId;
 
@@ -11,7 +11,7 @@ public class Query {
 
   private final HashMap<String, Integer> docTokenFrequencies;
 
-  public Query(Integer queryId, String docText, HashMap<String, Integer> docTokenFreqs) {
+  public Question(Integer queryId, String docText, HashMap<String, Integer> docTokenFreqs) {
     super();
     this.queryId = queryId;
     this.docText = docText;

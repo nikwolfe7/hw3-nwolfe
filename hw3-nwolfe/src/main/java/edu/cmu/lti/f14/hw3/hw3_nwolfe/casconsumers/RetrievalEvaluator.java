@@ -7,7 +7,6 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.uima.UIMA_IllegalStateException;
 import org.apache.uima.cas.CAS;
@@ -25,7 +24,9 @@ import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Document;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Answer;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.BetterMap;
-import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Query;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.CosineSimilarityStrategy;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Question;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Similarity;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Utils;
 
 public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
@@ -37,7 +38,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   private ArrayList<Integer> relList;
 
   /** Map of queries **/
-  private BetterMap<Integer, Query> qMap;
+  private BetterMap<Integer, Question> qMap;
 
   /** Map of answers **/
   private BetterMap<Integer, Answer> ansMap;
@@ -48,6 +49,8 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   private final String outfile = "report.txt";
 
   private final String datafile = "all-data.txt";
+  
+  private Similarity sim;
 
   @Override
   public void initialize() throws ResourceInitializationException {
@@ -56,11 +59,13 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
     relList = new ArrayList<Integer>();
 
-    qMap = new BetterMap<Integer, Query>();
+    qMap = new BetterMap<Integer, Question>();
 
     ansMap = new BetterMap<Integer, Answer>();
 
     outputBuffer = new ArrayList<Answer>();
+    
+    sim = new CosineSimilarityStrategy();
   }
 
   /**
@@ -82,7 +87,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
       System.out.println(s);
     }
     for (Integer qid : qMap.keySet()) {
-      Query query = qMap.get(qid).get(0);
+      Question query = qMap.get(qid).get(0);
       ds.println("QUESTION " + qid + "\n");
       ds.println(query.getDocText());
       ds.println("\nANSWERS\n");
@@ -130,7 +135,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
       Integer queryId = doc.getQueryID();
       Integer relevance = doc.getRelevanceValue();
       if (relevance == 99) {
-        Query q = new Query(queryId, doc.getText(), tokenFrequencies);
+        Question q = new Question(queryId, doc.getText(), tokenFrequencies);
         qMap.addItem(queryId, q);
       } else {
         Answer a = new Answer(queryId, relevance, doc.getText(), tokenFrequencies);
@@ -152,11 +157,10 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
     // TODO :: compute the cosine similarity measure
     for (Integer qid : qMap.keySet()) {
-      Query query = qMap.get(qid).get(0);
+      Question query = qMap.get(qid).get(0);
       for (Answer ans : ansMap.get(qid)) {
-        Double cosSim = computeCosineSimilarity(query.getDocTokenFrequencies(),
-                ans.getDocTokenFrequencies());
-        ans.setCosineSimilarity(cosSim);
+        Double cosSim = sim.computeSimilarity(query, ans);
+        ans.setSimilarity(cosSim);
       }
       // TODO :: compute the rank of retrieved sentences
       ArrayList<Answer> alist = ansMap.get(qid);
@@ -184,48 +188,6 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
         outputBuffer.add(a);
       }
     }
-  }
-
-  /**
-   * @return cosine_similarity
-   */
-  private Double computeCosineSimilarity(Map<String, Integer> queryVector,
-          Map<String, Integer> docVector) {
-    Double cosine_similarity = 0.0;
-
-    Iterable<Integer> A = queryVector.values();
-    Iterable<Integer> B = docVector.values();
-    Double normA = calcEuclideanNorm(A);
-    Double normB = calcEuclideanNorm(B);
-    Double normAB = normA * normB;
-
-    // Scalar product of A / B
-    for (String s : queryVector.keySet()) {
-      if (docVector.containsKey(s)) {
-        Integer a = queryVector.get(s);
-        Integer b = docVector.get(s);
-        Double axb = (double) (a * b);
-        cosine_similarity += axb;
-      }
-    }
-    // cosine_sim / normAB
-    cosine_similarity = cosine_similarity / normAB;
-    return cosine_similarity;
-  }
-
-  /**
-   * Caclulate Euclidean norm of a vector E = SUM(v^2) for v in V
-   * 
-   * @param V
-   * @return Double, euclidean norm
-   */
-  private Double calcEuclideanNorm(Iterable<Integer> V) {
-    Double eucNorm = 0.0;
-    for (Integer v : V) {
-      v = v * v; // v squared
-      eucNorm += v;
-    }
-    return Math.sqrt(eucNorm);
   }
 
   /**
