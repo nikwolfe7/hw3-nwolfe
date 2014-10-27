@@ -59,10 +59,11 @@ public class Answer implements Comparable<Answer> {
   }
   
   public String getReport() {
-    String report = String.format("cosine=%.4f\trank=%d\tqid=%d\trel=1\t%s", 
+    String report = String.format("cosine=%.4f\trank=%d\tqid=%d\trel=%d\t%s", 
             getCosineSimilarity(), 
             getRank(), 
             getQueryId(), 
+            getRelevance(),
             getDocText());
     return report;
   }

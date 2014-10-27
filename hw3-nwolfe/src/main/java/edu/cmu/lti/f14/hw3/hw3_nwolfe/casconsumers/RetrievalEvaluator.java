@@ -47,6 +47,8 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
   private final String outfile = "report.txt";
 
+  private final String datafile = "all-data.txt";
+
   @Override
   public void initialize() throws ResourceInitializationException {
 
@@ -66,9 +68,10 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
    * computing the MRR and outputs that as the last line of the file.
    */
   private void printReport() {
-    PrintStream ps;
+    PrintStream ps, ds;
     try {
       ps = new PrintStream(new File(outfile));
+      ds = new PrintStream(new File(datafile));
     } catch (FileNotFoundException e) {
       e.printStackTrace();
       throw new UIMA_IllegalStateException();
@@ -78,10 +81,22 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
       ps.println(s);
       System.out.println(s);
     }
+    for (Integer qid : qMap.keySet()) {
+      Query query = qMap.get(qid).get(0);
+      ds.println("QUESTION " + qid + "\n");
+      ds.println(query.getDocText());
+      ds.println("\nANSWERS\n");
+      for (Answer ans : ansMap.get(qid)) {
+        ds.println(ans.getReport());
+      }
+      ds.println("\n");
+    }
+
     // TODO :: compute the metric:: mean reciprocal rank
     Double metric_mrr = compute_mrr();
     ps.println(" (MRR) Mean Reciprocal Rank :: " + metric_mrr);
     ps.close();
+    ds.close();
   }
 
   /**
