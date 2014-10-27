@@ -5,9 +5,9 @@ Give us the name of the volcano that destroyed the ancient city of Pompeii
 ANSWERS
 
 similarity=0.6396	rank=1	qid=1	rel=0	Vesuvius is located near the ruins of the destroyed city of Pompeii. 
-similarity=0.2791	rank=2	qid=1	rel=1	In A.D. 79, long-dormant Mount Vesuvius erupted, burying in volcanic ash the Roman city of Pompeii; an  estimated 20,000 people died. 
+similarity=0.2667	rank=2	qid=1	rel=1	In A.D. 79, long-dormant Mount Vesuvius erupted, burying in volcanic ash the Roman city of Pompeii; an  estimated 20,000 people died. 
 similarity=0.2446	rank=3	qid=1	rel=0	You can see Vesuvius in the background, near ruins of Pompei; its last eruption was in 1944. 
-similarity=0.2068	rank=4	qid=1	rel=0	In 79 A.D., this ancient city was buried in an avalanche of hot ash from Mount Vesuvius. 
+similarity=0.1956	rank=4	qid=1	rel=0	In 79 A.D., this ancient city was buried in an avalanche of hot ash from Mount Vesuvius. 
 
 
 QUESTION 2
@@ -16,10 +16,10 @@ What has been the largest crowd to ever come see Michael Jordan
 
 ANSWERS
 
-similarity=0.3010	rank=1	qid=2	rel=0	A supposedly last play of  Michael Jordan gathered some of the largest crowd in history of NBA. 
-similarity=0.2858	rank=2	qid=2	rel=1	When Michael Jordan--one of the greatest basketball player of all time--made what was expected to be his last trip to play in Atlanta last  March, an NBA record 62,046 fans turned out to see him and the  Bulls. 
-similarity=0.1987	rank=3	qid=2	rel=0	In the Bulls' last visit to Atlanta, an NBA-record 62,046 fans showed up at the Georgia Dome. 
-similarity=0.1952	rank=4	qid=2	rel=0	The Immortal World Tour of Michael Jackson gathered some of the largest crowds of fans in the history of pop music. 
+similarity=0.4003	rank=1	qid=2	rel=1	When Michael Jordan--one of the greatest basketball player of all time--made what was expected to be his last trip to play in Atlanta last  March, an NBA record 62,046 fans turned out to see him and the  Bulls. 
+similarity=0.3010	rank=2	qid=2	rel=0	A supposedly last play of  Michael Jordan gathered some of the largest crowd in history of NBA. 
+similarity=0.2774	rank=3	qid=2	rel=0	The Immortal World Tour of Michael Jackson gathered some of the largest crowds of fans in the history of pop music. 
+similarity=0.1987	rank=4	qid=2	rel=0	In the Bulls' last visit to Atlanta, an NBA-record 62,046 fans showed up at the Georgia Dome. 
 
 
 QUESTION 3
@@ -28,9 +28,9 @@ In which year did a purchase of Alaska happen?
 
 ANSWERS
 
-similarity=0.4216	rank=1	qid=3	rel=0	William Seward negotiated a purchase of Alaska for $7.2 million. 
-similarity=0.2673	rank=2	qid=3	rel=0	1867 - U.S. President Andrew Jackson proclaims treaty for purchase of Alaska from Russia. 
-similarity=0.2357	rank=3	qid=3	rel=1	Alaska was purchased from Russia in year 1867. 
+similarity=0.4714	rank=1	qid=3	rel=1	Alaska was purchased from Russia in year 1867. 
+similarity=0.4216	rank=2	qid=3	rel=0	William Seward negotiated a purchase of Alaska for $7.2 million. 
+similarity=0.2673	rank=3	qid=3	rel=0	1867 - U.S. President Andrew Jackson proclaims treaty for purchase of Alaska from Russia. 
 
 
 QUESTION 4
@@ -39,9 +39,9 @@ What year did Wilt Chamberlain score 100 points?
 
 ANSWERS
 
-similarity=0.2739	rank=1	qid=4	rel=0	A 100 point game was a highlight in a career of Wilt Chamberlain 
-similarity=0.2315	rank=2	qid=4	rel=1	On March 2, 1962, Wilt Chamberlain scored a record 100 points in a   game against the New York Knicks. 
-similarity=0.2004	rank=3	qid=4	rel=0	Wilt Chamberlain most famous record is the 100 points he scored in the   Philadelphia Warriors' 169-147 defeat of the New York Knicks. 
+similarity=0.3086	rank=1	qid=4	rel=1	On March 2, 1962, Wilt Chamberlain scored a record 100 points in a   game against the New York Knicks. 
+similarity=0.2673	rank=2	qid=4	rel=0	Wilt Chamberlain most famous record is the 100 points he scored in the   Philadelphia Warriors' 169-147 defeat of the New York Knicks. 
+similarity=0.2433	rank=3	qid=4	rel=0	A 100 point game was a highlight in a career of Wilt Chamberlain 
 
 
 QUESTION 5
@@ -52,7 +52,7 @@ ANSWERS
 
 similarity=0.4082	rank=1	qid=5	rel=0	Yellow river is often called the mother of China 
 similarity=0.1633	rank=2	qid=5	rel=0	Yangtze is longest river in Asia in general and in China, in particular. 
-similarity=0.0000	rank=3	qid=5	rel=1	People of China have mixed feelings about  River, which they often call "sorrow of China" 
+similarity=0.0990	rank=3	qid=5	rel=1	People of China have mixed feelings about  River, which they often call "sorrow of China" 
 
 
 QUESTION 6
@@ -61,9 +61,9 @@ Who was the first person to run the mile in less than four minutes
 
 ANSWERS
 
-similarity=0.6013	rank=1	qid=6	rel=0	It is hard for humans to run the mile faster than in four minutes 
+similarity=0.6682	rank=1	qid=6	rel=0	It is hard for humans to run the mile faster than in four minutes 
 similarity=0.5547	rank=2	qid=6	rel=1	Roger Bannister was the first to break the four-minute mile barrier. 
-similarity=0.1823	rank=3	qid=6	rel=0	The claim that a 4-minute mile was once thought to be impossible byinformed observers was and is a widely propagated myth created by sportswriters and debunked by Bannister himself in his memoir, The Four Minute Mile (1955). 
+similarity=0.4557	rank=3	qid=6	rel=0	The claim that a 4-minute mile was once thought to be impossible byinformed observers was and is a widely propagated myth created by sportswriters and debunked by Bannister himself in his memoir, The Four Minute Mile (1955). 
 
 
 QUESTION 7
@@ -73,9 +73,9 @@ What year did Alaska become a state?
 ANSWERS
 
 similarity=0.1782	rank=1	qid=7	rel=0	Also as it did in 1959, the state of Alaska was struggling with how to pay its bills. 
-similarity=0.0917	rank=2	qid=7	rel=0	Aaska is a U.S. state situated in the northwest extremity of the North American continent. 
-similarity=0.0891	rank=3	qid=7	rel=1	And that's not even to mention the breathtaking beauty of Alaska that became, in 1959, our 49th state. 
-similarity=0.0000	rank=4	qid=7	rel=0	On Jan. 3, 1959, Alaska's became the 49th star on Old Glory. 
+similarity=0.1010	rank=2	qid=7	rel=0	On Jan. 3, 1959, Alaska's became the 49th star on Old Glory. 
+similarity=0.0917	rank=3	qid=7	rel=0	Aaska is a U.S. state situated in the northwest extremity of the North American continent. 
+similarity=0.0891	rank=4	qid=7	rel=1	And that's not even to mention the breathtaking beauty of Alaska that became, in 1959, our 49th state. 
 
 
 QUESTION 8
@@ -84,8 +84,8 @@ When did Mike Tyson bite Holyfield's ear?
 
 ANSWERS
 
-similarity=0.2182	rank=1	qid=8	rel=0	Tyson was choked up as he spoke of biting Evander Holyfield's ear. 
-similarity=0.1833	rank=2	qid=8	rel=1	Fighting for Holyfield's WBA heavyweight title on June 28, 1997, Tyson inexplicably bit his opponent's right ear. 
+similarity=0.3273	rank=1	qid=8	rel=0	Tyson was choked up as he spoke of biting Evander Holyfield's ear. 
+similarity=0.2750	rank=2	qid=8	rel=1	Fighting for Holyfield's WBA heavyweight title on June 28, 1997, Tyson inexplicably bit his opponent's right ear. 
 similarity=0.0690	rank=3	qid=8	rel=0	Tyson told the panel he was foggy from repeated head butts by Holyfield in the third round of their June 28, 1997 fight in Las Vegas. 
 similarity=0.0557	rank=4	qid=8	rel=0	Tyson said he was feeling betrayed by "people I would have died for" leading up to the June 1997 title fight against Holyfield, according to the psychiatric report released today by the state attorney general's office. 
 
@@ -108,10 +108,10 @@ Who won the Nobel Peace Prize in 1992?
 
 ANSWERS
 
-similarity=0.5000	rank=1	qid=10	rel=1	Menchu won the Nobel peace prize in 1992. 
-similarity=0.2774	rank=2	qid=10	rel=0	Menchu, a Guatemalan leader internationally known for her work in human rights and a leading Indian activist, was honored with the Nobel Peace Prize. 
-similarity=0.1581	rank=3	qid=10	rel=0	A new book debunks much of Nobel peace prize laureate Ms. Menchu's version of her life in Guatemala. 
-similarity=0.0857	rank=4	qid=10	rel=0	A nobel prize laureate Ms. Menchu became an internationally acclaimed spokeswoman for the rights of indigenous people. 
+similarity=0.7500	rank=1	qid=10	rel=1	Menchu won the Nobel peace prize in 1992. 
+similarity=0.3162	rank=2	qid=10	rel=0	A new book debunks much of Nobel peace prize laureate Ms. Menchu's version of her life in Guatemala. 
+similarity=0.2774	rank=3	qid=10	rel=0	Menchu, a Guatemalan leader internationally known for her work in human rights and a leading Indian activist, was honored with the Nobel Peace Prize. 
+similarity=0.2572	rank=4	qid=10	rel=0	A nobel prize laureate Ms. Menchu became an internationally acclaimed spokeswoman for the rights of indigenous people. 
 
 
 QUESTION 11
@@ -121,9 +121,9 @@ Where is Devil's Tower
 ANSWERS
 
 similarity=0.3638	rank=1	qid=11	rel=0	Devil's Tower  is an igneous intrusion that rises dramatically 1,267 feet (386 m) above the surrounding terrain. 
-similarity=0.3273	rank=2	qid=11	rel=0	To the west, across the Wyoming border, is the staggeringly beautiful Devil's Tower National Monument. 
-similarity=0.2357	rank=3	qid=11	rel=0	In 1941, Petzoldt joined other rock climbers to rescue a marooned parachutist who had landed atop Devil's Tower 
-similarity=0.1768	rank=4	qid=11	rel=1	Devils Tower can be found in Crook County 
+similarity=0.3536	rank=2	qid=11	rel=1	Devils Tower can be found in Crook County 
+similarity=0.3273	rank=3	qid=11	rel=0	To the west, across the Wyoming border, is the staggeringly beautiful Devil's Tower National Monument. 
+similarity=0.2357	rank=4	qid=11	rel=0	In 1941, Petzoldt joined other rock climbers to rescue a marooned parachutist who had landed atop Devil's Tower 
 
 
 QUESTION 12
@@ -133,9 +133,9 @@ What is the height of the tallest redwood?
 ANSWERS
 
 similarity=0.5721	rank=1	qid=12	rel=0	Mendocino Tree is the tallest redwood in the world. 
-similarity=0.3835	rank=2	qid=12	rel=0	"Mendocino Tree" has been officially decreed the tallest living thing by Save the Redwoods League. 
-similarity=0.3162	rank=3	qid=12	rel=1	Named the "Mendocino Tree," the 600- to 800-year-old redwood   stands 367 1/2 feet tall. 
-similarity=0.2981	rank=4	qid=12	rel=0	The tallest tree alive in the world today is a 370-foot-tall redwood whose location biologists declined to disclose. 
+similarity=0.4602	rank=2	qid=12	rel=0	"Mendocino Tree" has been officially decreed the tallest living thing by Save the Redwoods League. 
+similarity=0.4243	rank=3	qid=12	rel=0	The tallest tree alive in the world today is a 370-foot-tall redwood whose location biologists declined to disclose. 
+similarity=0.3162	rank=4	qid=12	rel=1	Named the "Mendocino Tree," the 600- to 800-year-old redwood   stands 367 1/2 feet tall. 
 
 
 QUESTION 13
@@ -144,8 +144,8 @@ How deep is Crater Lake?
 
 ANSWERS
 
-similarity=0.2697	rank=1	qid=13	rel=0	Crater Lake is a caldera lake in the western United States. 
-similarity=0.1348	rank=2	qid=13	rel=0	There are no rivers flowing into or out of Crater Lake 
+similarity=0.2697	rank=1	qid=13	rel=0	There are no rivers flowing into or out of Crater Lake 
+similarity=0.2481	rank=2	qid=13	rel=0	Crater Lake is a caldera lake in the western United States. 
 similarity=0.1195	rank=3	qid=13	rel=1	Oregon's Crater Lake tops it at 1,932 feet at its greatest depth. 
 
 
@@ -155,9 +155,9 @@ Who was the lead singer for the Commodores
 
 ANSWERS
 
-similarity=0.4226	rank=1	qid=14	rel=0	The Commodores originally came together from groups the Mystics and the Jays. 
-similarity=0.4216	rank=2	qid=14	rel=1	Lionel Richiewas was lead singer and songwriter for Commodores. 
-similarity=0.3381	rank=3	qid=14	rel=0	The Commodores are an American funk/soulband, which was at its peak in the 1970s. 
+similarity=0.5217	rank=1	qid=14	rel=0	The Commodores originally came together from groups the Mystics and the Jays. 
+similarity=0.5217	rank=2	qid=14	rel=0	The Commodores are an American funk/soulband, which was at its peak in the 1970s. 
+similarity=0.4216	rank=3	qid=14	rel=1	Lionel Richiewas was lead singer and songwriter for Commodores. 
 
 
 QUESTION 15
@@ -168,7 +168,7 @@ ANSWERS
 
 similarity=0.5714	rank=1	qid=15	rel=0	Oymyakon is the coldest place in Russia. 
 similarity=0.4193	rank=2	qid=15	rel=0	Prospect Creek Camp in Alaska is the coldest place in US. 
-similarity=0.0788	rank=3	qid=15	rel=1	A new look at NASA satellite data revealed that Earth set a new record for coldest temperature recorded in East Antarctica. 
+similarity=0.0727	rank=3	qid=15	rel=1	A new look at NASA satellite data revealed that Earth set a new record for coldest temperature recorded in East Antarctica. 
 
 
 QUESTION 17
@@ -177,9 +177,9 @@ Which U.S. state is the leading corn producer?
 
 ANSWERS
 
-similarity=0.4472	rank=1	qid=17	rel=0	The United States is the world's leading producer of corn 
-similarity=0.2774	rank=2	qid=17	rel=0	The U.S. state leading in production of corn received $600  million in annual tax subsidies to boost production of ethanol. 
-similarity=0.1508	rank=3	qid=17	rel=1	Corn futures found support from forecasts for above-normal   temperatures in major growing areas, including Iowa, which often is  the nation's largest producer. 
+similarity=0.6124	rank=1	qid=17	rel=0	The United States is the world's leading producer of corn 
+similarity=0.3467	rank=2	qid=17	rel=0	The U.S. state leading in production of corn received $600  million in annual tax subsidies to boost production of ethanol. 
+similarity=0.3015	rank=3	qid=17	rel=1	Corn futures found support from forecasts for above-normal   temperatures in major growing areas, including Iowa, which often is  the nation's largest producer. 
 
 
 QUESTION 16
@@ -188,9 +188,9 @@ When did Bob Marley die
 
 ANSWERS
 
-similarity=0.3464	rank=1	qid=16	rel=0	Bob Marley was a Jamaican reggae singer-songwriter, musician, and guitarist who did achieve international fame. 
-similarity=0.3354	rank=2	qid=16	rel=0	Without proper and timely removal of tumor one can die like Bob Marley or Steve Jobs. 
-similarity=0.2828	rank=3	qid=16	rel=1	Bob Marley died in 1981 from cancer at age 36. 
+similarity=0.4243	rank=1	qid=16	rel=1	Bob Marley died in 1981 from cancer at age 36. 
+similarity=0.3464	rank=2	qid=16	rel=0	Bob Marley was a Jamaican reggae singer-songwriter, musician, and guitarist who did achieve international fame. 
+similarity=0.3354	rank=3	qid=16	rel=0	Without proper and timely removal of tumor one can die like Bob Marley or Steve Jobs. 
 
 
 QUESTION 19
@@ -199,9 +199,9 @@ The Hindenburg disaster took place in 1937 in which New Jersey town?
 
 ANSWERS
 
-similarity=0.2880	rank=1	qid=19	rel=0	The Hindenburg disaster took place as the German passenger airship LZ 129 Hindenburg caught fire and was destroyed during its attempt to dock with its mooring mast 
+similarity=0.3257	rank=1	qid=19	rel=0	The Hindenburg disaster took place as the German passenger airship LZ 129 Hindenburg caught fire and was destroyed during its attempt to dock with its mooring mast 
 similarity=0.2849	rank=2	qid=19	rel=0	Hindenburg-class airships were passenger carrying rigid airships all of which were retired shortly after a disaster in 1937 
-similarity=0.1268	rank=3	qid=19	rel=1	On May 6, 1937, the hydrogen-filled German dirigible Hindenburg   burned and crashed in Lakehurst, N.J., killing 35 of the 97 people  on board and a Navy crewman on the ground. 
+similarity=0.2417	rank=3	qid=19	rel=1	On May 6, 1937, the hydrogen-filled German dirigible Hindenburg   burned and crashed in Lakehurst, N.J., killing 35 of the 97 people  on board and a Navy crewman on the ground. 
 
 
 QUESTION 18
@@ -210,9 +210,9 @@ Where was the first McDonald's built?
 
 ANSWERS
 
-similarity=0.2357	rank=1	qid=18	rel=0	McDonald's Corporation is the world's largest chain of hamburger fast food restaurants. 
+similarity=0.3536	rank=1	qid=18	rel=0	McDonald's Corporation is the world's largest chain of hamburger fast food restaurants. 
 similarity=0.2265	rank=2	qid=18	rel=1	From a single hamburger stand in San Bernardino, Calif., in 1948, the systematized approach that the McDonald brothers developed to offer customers reasonably priced food at a rapid pace formed the cornerstone of the fast-food business. 
-similarity=0.0000	rank=3	qid=18	rel=0	The company began in 1940 as a barbecue restaurant operated by Richard and Maurice McDonald. 
+similarity=0.1054	rank=3	qid=18	rel=0	The company began in 1940 as a barbecue restaurant operated by Richard and Maurice McDonald. 
 
 
 QUESTION 20
@@ -221,8 +221,8 @@ What is the Keystone State?
 
 ANSWERS
 
-similarity=0.4216	rank=1	qid=20	rel=0	Keystone Resort is the largest ski resort in Summit County located in Keystone Colorado. 
+similarity=0.4000	rank=1	qid=20	rel=0	Keystone Resort is the largest ski resort in Summit County located in Keystone Colorado. 
 similarity=0.3078	rank=2	qid=20	rel=1	They call it the Keystone State, and in this unpredictable election year, Pennsylvania is living up to its name. 
-similarity=0.1414	rank=3	qid=20	rel=0	The Keytstone Resort is owned and operated by Vail Resort. 
+similarity=0.2828	rank=3	qid=20	rel=0	The Keytstone Resort is owned and operated by Vail Resort. 
 
 

@@ -13,6 +13,8 @@ import org.apache.uima.resource.ResourceInitializationException;
 
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Document;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.LemmatizeCounter;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.StemCounter;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Counter;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Utils;
 
@@ -23,7 +25,8 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     super.initialize(aContext);
-    this.tokenCounter = new Counter();
+    //this.tokenCounter = new Counter();
+    this.tokenCounter = new StemCounter();
   }
 
   @Override

@@ -2,6 +2,10 @@ package edu.cmu.lti.f14.hw3.hw3_nwolfe.utils;
 
 import java.util.Map;
 
+/*
+ * A type of Similarity object which takes a Question and Answer object and returns
+ * the cosine similarity between them
+ */
 public class CosineSimilarityStrategy implements Similarity {
 
   @Override
