@@ -123,8 +123,8 @@
 		</plugins>
 	</build>
 	<scm>
-		<connection>scm:git:git@github.com:nik11791/hw3-nwolfe.git</connection>
-		<developerConnection>scm:git:git@github.com:nik11791/hw3-nwolfe.git</developerConnection>
-		<tag>hw3-nwolfe-0.0.1</tag>
+		<connection>scm:git:git@github.com:nikwolfe7/hw3-nwolfe.git</connection>
+		<developerConnection>scm:git:git@github.com:nikwolfe7/hw3-nwolfe.git</developerConnection>
+		<tag>HEAD</tag>
 	</scm>
 </project>
