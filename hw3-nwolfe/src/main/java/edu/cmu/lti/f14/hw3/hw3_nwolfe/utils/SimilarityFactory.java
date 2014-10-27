@@ -14,7 +14,7 @@ public class SimilarityFactory {
 
   public static Similarity getNewSimilarity() {
     if (current.equals(dj))
-      return new DiceJaccardSimilarity();
+      return new DiceJaccardStrategy();
     else if (current.equals(dice))
       return new DiceSimilarityStrategy();
     else if (current.equals(jaccard))

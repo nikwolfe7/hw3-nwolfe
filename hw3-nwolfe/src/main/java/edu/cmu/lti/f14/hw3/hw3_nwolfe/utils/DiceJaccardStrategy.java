@@ -1,6 +1,6 @@
 package edu.cmu.lti.f14.hw3.hw3_nwolfe.utils;
 
-public class DiceJaccardSimilarity implements Similarity {
+public class DiceJaccardStrategy implements Similarity {
 
   private DiceSimilarityStrategy dss;
 
@@ -9,7 +9,7 @@ public class DiceJaccardSimilarity implements Similarity {
 /*
  * Computes the harmonic mean of the Dice and Jaccard coefficients 
  */
-  public DiceJaccardSimilarity() {
+  public DiceJaccardStrategy() {
     dss = new DiceSimilarityStrategy();
     jss = new JaccardSimilarityStrategy();
   }
