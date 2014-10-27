@@ -43,7 +43,6 @@ extends JCasAnnotator_ImplBase  {
 		jcas.addFsToIndexes(doc);
 	}
 
-
 	public static ArrayList<String> parseDataLine(String line) {
 		ArrayList<String> docInfo;
 

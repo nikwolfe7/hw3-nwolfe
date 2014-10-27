@@ -16,6 +16,7 @@ import org.apache.uima.cas.FSIterator;
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.FSList;
+import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
@@ -61,9 +62,8 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   }
 
   /**
-   * Loops through the Answer objects in the outputBuffer
-   * and writes the results to a file. Ends by computing the
-   * MRR and outputs that as the last line of the file. 
+   * Loops through the Answer objects in the outputBuffer and writes the results to a file. Ends by
+   * computing the MRR and outputs that as the last line of the file.
    */
   private void printReport() {
     PrintStream ps;
@@ -87,7 +87,6 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
    */
   @Override
   public void processCas(CAS aCas) throws ResourceProcessException {
-
     JCas jcas;
     try {
       jcas = aCas.getJCas();
@@ -95,8 +94,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
       throw new ResourceProcessException(e);
     }
 
-    @SuppressWarnings("rawtypes")
-    FSIterator it = jcas.getAnnotationIndex(Document.type).iterator();
+    FSIterator<Annotation> it = jcas.getAnnotationIndex(Document.type).iterator();
 
     if (it.hasNext()) {
       Document doc = (Document) it.next();
@@ -104,12 +102,13 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
       // Make sure that your previous annotators have populated this in CAS
       FSList fsTokenList = doc.getTokenList();
       ArrayList<Token> tokenList = Utils.fromFSListToCollection(fsTokenList, Token.class);
-      HashMap<String, Integer> tokenFrequencies = new HashMap<String, Integer>();
+      HashMap<String, Integer> tokenFrequencies = new HashMap<String, Integer>(tokenList.size());
       for (Token t : tokenList) {
         String key = t.getText();
         Integer value = t.getFrequency();
         tokenFrequencies.put(key, value);
       }
+
       // query id
       Integer queryId = doc.getQueryID();
       Integer relevance = doc.getRelevanceValue();
@@ -120,6 +119,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
         Answer a = new Answer(queryId, relevance, doc.getText(), tokenFrequencies);
         ansMap.addItem(queryId, a);
       }
+
       qIdList.add(queryId);
       relList.add(relevance);
     }
@@ -153,8 +153,9 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   }
 
   /**
-   * Loops through the Answer array, adds the ones which are ranked
-   * highest and relevant to the outputBuffer
+   * Loops through the Answer array, adds the ones which are ranked highest and relevant to the
+   * outputBuffer
+   * 
    * @param alist
    * @param qid
    */
@@ -162,9 +163,8 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
     for (int i = 0; i < alist.size(); i++) {
       Answer a = alist.get(i);
       a.setRank(i + 1);
-      if (a.getRelevance() == 1) {
+      if (a.getRank() == 1) {
         outputBuffer.add(a);
-        break;
       }
     }
   }
@@ -175,7 +175,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
   private Double computeCosineSimilarity(Map<String, Integer> queryVector,
           Map<String, Integer> docVector) {
     Double cosine_similarity = 0.0;
-    
+
     Iterable<Integer> A = queryVector.values();
     Iterable<Integer> B = docVector.values();
     Double normA = calcEuclideanNorm(A);
@@ -213,14 +213,15 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
   /**
    * Calculate MRR from the Answers outputBuffer
+   * 
    * @return mrr
    */
   private Double compute_mrr() {
     Double metric_mrr = 0.0;
-    for(Answer a : outputBuffer) {
-      metric_mrr += 1/(a.getRank().floatValue());
+    for (Answer a : outputBuffer) {
+      metric_mrr += 1 / (a.getRank().floatValue());
     }
-    metric_mrr = metric_mrr/outputBuffer.size();
+    metric_mrr = metric_mrr / outputBuffer.size();
     return metric_mrr;
   }
 
