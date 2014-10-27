@@ -74,7 +74,9 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
       throw new UIMA_IllegalStateException();
     }
     for (Answer a : outputBuffer) {
-      ps.println(a.getReport());
+      String s = a.getReport();
+      ps.println(s);
+      System.out.println(s);
     }
     // TODO :: compute the metric:: mean reciprocal rank
     Double metric_mrr = compute_mrr();
@@ -154,7 +156,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
   /**
    * Loops through the Answer array, adds the ones which are ranked highest and relevant to the
-   * outputBuffer
+   * outputBuffer -- assumes list is already sorted
    * 
    * @param alist
    * @param qid
@@ -163,7 +165,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
     for (int i = 0; i < alist.size(); i++) {
       Answer a = alist.get(i);
       a.setRank(i + 1);
-      if (a.getRank() == 1) {
+      if (a.getRelevance() == 1) {
         outputBuffer.add(a);
       }
     }

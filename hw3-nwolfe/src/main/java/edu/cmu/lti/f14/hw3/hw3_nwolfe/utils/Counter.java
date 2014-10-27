@@ -41,7 +41,8 @@ public class Counter extends HashMap<String, Integer> {
   }
   
   /**
-   * Splits a document based on a delimiter and adds them to the map
+   * Splits a document based on a String delimiter and adds them to the map
+   * 
    * @param doc
    * @param delimiter
    */
