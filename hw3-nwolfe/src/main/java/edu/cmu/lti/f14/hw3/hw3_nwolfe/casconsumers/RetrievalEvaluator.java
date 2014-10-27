@@ -25,8 +25,11 @@ import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Answer;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.BetterMap;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.CosineSimilarityStrategy;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.DiceSimilarityStrategy;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.JaccardSimilarityStrategy;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Question;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Similarity;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.SimilarityFactory;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Utils;
 
 public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
@@ -65,7 +68,7 @@ public class RetrievalEvaluator<V> extends CasConsumer_ImplBase {
 
     outputBuffer = new ArrayList<Answer>();
     
-    sim = new CosineSimilarityStrategy();
+    sim = SimilarityFactory.getNewSimilarity();
   }
 
   /**

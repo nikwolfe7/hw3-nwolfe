@@ -6,13 +6,13 @@ import java.util.List;
 
 /**
  * This is a decorator of the typical HashMap to specifically handle cases where we are trying to
- * count the keys we insert. Modeled after the type of Counter class we have in python. This
+ * count the keys we insert. Modeled after the type of FrequencyCounter class we have in python. This
  * is useful for bag-of-words representations of text documents
  * 
  * @author nwolfe
  *  
  */
-public class Counter extends HashMap<String, Integer> {
+public class FrequencyCounter extends HashMap<String, Integer> {
   private static final long serialVersionUID = -4771350887733387006L;
   
   /*

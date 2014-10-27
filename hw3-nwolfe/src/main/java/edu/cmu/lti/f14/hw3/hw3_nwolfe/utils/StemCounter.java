@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /*
- * Extension of the Counter class which does preprocessing on the data
+ * Extension of the FrequencyCounter class which does preprocessing on the data
  * before adding it to the map using the Stanford Lemmatizer stemWord() function
  * which stems the word and returns it in lowercase form. 
  */
-public class StemCounter extends Counter {
+public class StemCounter extends FrequencyCounter {
   
   private static final long serialVersionUID = -522079579866695088L;
 

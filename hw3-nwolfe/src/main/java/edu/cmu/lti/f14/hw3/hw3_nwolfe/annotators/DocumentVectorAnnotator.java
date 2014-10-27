@@ -14,20 +14,22 @@ import org.apache.uima.resource.ResourceInitializationException;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Document;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.typesystems.Token;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.CleanStemCounter;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.CleanStemStopWordCounter;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.FrequencyCounterFactory;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.LemmatizeCounter;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.StemCounter;
-import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Counter;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.FrequencyCounter;
+import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.StopWordCounter;
 import edu.cmu.lti.f14.hw3.hw3_nwolfe.utils.Utils;
 
 public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
-  Counter tokenCounter;
+  FrequencyCounter tokenCounter;
   
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     super.initialize(aContext);
-    //this.tokenCounter = new Counter();
-    this.tokenCounter = new CleanStemCounter();
+    this.tokenCounter = FrequencyCounterFactory.getNewFrequencyCounter();
   }
 
   @Override

@@ -6,11 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- * Extension of the Counter class which does preprocessing on the data
+ * Extension of the FrequencyCounter class which does preprocessing on the data by removing
+ * all whitespace characters and punctuation marks using a Regex expression
  * before adding it to the map using the Stanford Lemmatizer stemWord() function
  * which stems the word and returns it in lowercase form. 
  */
-public class CleanStemCounter extends Counter {
+public class CleanStemCounter extends FrequencyCounter {
 
   private static final long serialVersionUID = -522079579866695088L;
 

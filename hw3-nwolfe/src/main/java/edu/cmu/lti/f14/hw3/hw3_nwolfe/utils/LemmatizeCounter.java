@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /*
- * Extension of the Counter class which does preprocessing on the data
+ * Extension of the FrequencyCounter class which does preprocessing on the data
  * before adding it to the map using the Stanford Lemmatizer lemma() function
  * which lemmatizes the word and returns it in lowercase form. 
  */
-public class LemmatizeCounter extends Counter {
+public class LemmatizeCounter extends FrequencyCounter {
 
   private static final long serialVersionUID = 4465994676825135586L;
 
