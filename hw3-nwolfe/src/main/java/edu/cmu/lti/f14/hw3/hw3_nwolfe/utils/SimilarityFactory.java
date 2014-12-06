@@ -16,7 +16,7 @@ public class SimilarityFactory {
 
   private static String cos = "cosine";
 
-  private static String current = weighted;
+  private static String current = cos;
 
   public static Similarity getNewSimilarity() {
     if (current.equals(dj))
