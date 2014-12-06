@@ -13,7 +13,7 @@ public class FrequencyCounterFactory {
 
   private static String stem = "stem";
 
-  private static String current = cleanStem;
+  private static String current = freq;
 
   public static FrequencyCounter getNewFrequencyCounter() {
     if (current.equals(cleanStem))
